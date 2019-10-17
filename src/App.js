@@ -5,7 +5,7 @@ import './App.css';
 
 const HatsPage = () => (
   <div>
-    <h1>Hats Page</h1>
+    <h1>HatsPage</h1>
   </div>
 );
 
@@ -14,7 +14,7 @@ function App() {
     <div className='App'>
       <Switch>
         <Route exact path='/' component={Homepage} />
-        <Route path='/hats' component={HatsPage} />
+        <Route path='/shop/hats' component={HatsPage} />
       </Switch>
     </div>
   );

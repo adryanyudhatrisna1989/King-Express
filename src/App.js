@@ -1,8 +1,8 @@
 import React from 'react';
-import Homepage from './pages/homepage/homepage.components';
+import HomePage from './pages/homepage/homepage.components';
 import ShopPage from './pages/shop/shop.components';
 import Header from './components/Header/header.components';
-import SignInSignUp from './pages/sign-in-sign-up/sign-in-sign-up.components';
+import SignInAndSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up.components';
 import { Switch, Route } from 'react-router-dom';
 import { auth, createUserProfileDocument } from './firebase/firebase.util';
 import './App.css';
@@ -30,10 +30,10 @@ class App extends React.Component {
               ...snapShot.data()
             }
           });
-          console.log(this.state);
         });
       }
-      this.setState({ currentUser: auth });
+
+      this.setState({ currentUser: userAuth });
     });
   }
 
@@ -43,12 +43,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className='App'>
+      <div>
         <Header currentUser={this.state.currentUser} />
         <Switch>
-          <Route exact path='/' component={Homepage} />
-          <Route path='/shop/hats' component={ShopPage} />
-          <Route path='/signin' component={SignInSignUp} />
+          <Route exact path='/' component={HomePage} />
+          <Route path='/shop' component={ShopPage} />
+          <Route path='/signin' component={SignInAndSignUpPage} />
         </Switch>
       </div>
     );
